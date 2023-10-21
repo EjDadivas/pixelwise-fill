@@ -19,7 +19,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className='main'>
           <div className='gradient'></div>
+          {/* TODO: Navbar Section */}
+          <div>Navbar</div>
+        <main className='app'>
         {children}
+        </main>
+       
         </div>
         </body>
     </html>
