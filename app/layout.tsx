@@ -20,7 +20,7 @@ export default function RootLayout({
         <div className='main'>
           <div className='gradient'></div>
           {/* TODO: Navbar Section */}
-          <div>Navbar</div>
+          <div className='text-white'>Navbar</div>
         <main className='app'>
         {children}
         </main>

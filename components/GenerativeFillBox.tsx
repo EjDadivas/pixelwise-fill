@@ -2,19 +2,14 @@
 import { useState, useRef, useEffect } from "react"
 import { Button } from "./ui/button"
 import { CldImage } from "next-cloudinary";
+import BouncingBalls from "./ui/BouncingBalls";
+import BoxArea from "./BoxArea";
 
-import UploadButton from "./UploadButton";
 
-import Image from "next/image";
-
-type ImageData = {
-    publicId: string
-}
 // TODO: Pass the uploadeded Image inside
-const GenerativeFillBox =({publicId} : ImageData) => {
+const GenerativeFillBox =({publicId} : {publicId: string}) => {
     const imageRef = useRef<HTMLImageElement | null>(null)
     const containerRef = useRef<HTMLDivElement | null>(null)
-    const [minHeight, setMinHeight] = useState(0)
     const [height, setHeight] = useState<null | number>(null)
     const [width, setWidth] = useState<null | number>(null)
     const [isLoading, setIsLoading] = useState(false)
@@ -22,9 +17,8 @@ const GenerativeFillBox =({publicId} : ImageData) => {
         setIsLoading(true)
         setHeight(containerRef.current?.offsetHeight || 0)
         setWidth(containerRef.current?.offsetWidth || 0)
-        setMinHeight(imageRef.current?.offsetHeight || 0)
         setIsLoading(false)
-    }, [minHeight])
+    }, [])
     
     const handleResize = () =>{
         setIsLoading(true)
@@ -37,38 +31,26 @@ const GenerativeFillBox =({publicId} : ImageData) => {
     }
   return (
     <div className="w-full">
-    <div className="flex gap-24 ">
-        <div className="mt-10 mx-auto h-[500px] w-[500px] text-center">
-            <div className="relative flex h-full w-full items-center justify-center glassmorphism">
-                {/* TODO: Make a Loading for the height */}
-
-                
-                <div ref={containerRef} className={`resize min-h-[${minHeight.toString()}px] min-w-fit max-h-full max-w-full flex items-center justify-center overflow-hidden border border-dashed border-black `}>
-                    <CldImage ref={imageRef} src={publicId} height={300} width={300} alt="publicId"/>
+        <div className="flex gap-24">
+            <div className="mx-auto h-[500px] w-[500px] text-center">
+                <BoxArea className="relative">
+                    <div ref={containerRef} className={`resize min-h-fit min-w-fit max-h-full max-w-full flex items-center justify-center overflow-hidden border border-dashed border-white `}>
+                        <CldImage ref={imageRef} src={publicId} height={300} width={300} alt="publicId"/>
+                    </div>
+                </BoxArea>
+                <div>
                 </div>
-              
-                
+                <Button className="mt-4 text-sm bg-orange-400 rounded-full text-white" onClick={handleResize}>Resize</Button>
             </div>
-            <div>
+            {/* GENERATED FILL */}
+            <div className="mx-auto  h-[500px] w-[500px] text-center">
+                <BoxArea>
+                    .
+                {isLoading ? <BouncingBalls/> :  <CldImage src={publicId} height={height || 0} width={width || 0} alt="publicId" crop="pad" fillBackground />}
+                </BoxArea>
+            <Button  className="mt-4 text-sm bg-orange-400 rounded-full text-white" onClick={()=>console.log("download")}>Download</Button>
             </div>
-            <Button className="mt-4 px-5 py-1.5 text-sm bg-orange-400 rounded-full text-white" onClick={handleResize}>Resize</Button>
         </div>
-        {/* GENERATED FILL */}
-        <div className="mt-10 mx-auto  h-[500px] w-[500px] text-center">
-         
-            <div className=" h-full w-full flex items-center justify-center glassmorphism">
-               {!height || !width ? (<>Loading</>) :
-               
-               ( <>{isLoading ? "Loading..." :  <CldImage src={publicId} height={height || 0} width={width || 0} alt="publicId" crop="pad" fillBackground />}</>)
-                }
-              
-             
-
-            </div>
-           <Button  className="mt-4 px-5 py-1.5 text-sm bg-orange-400 rounded-full text-white" onClick={()=>console.log("download")}>Download</Button>
-        </div>
-        
-    </div>
 
 
     </div>

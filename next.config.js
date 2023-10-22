@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["images.unsplash.com", "res.cloudinary.com"],
+    domains: ["lh3.googleusercontent.com"],
+  },
+  experimental: {
+    serverComponentsExternalPackages: ["cloudinary", "graphql-request"],
   },
 };
 

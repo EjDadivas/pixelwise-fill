@@ -1,21 +1,22 @@
 import GenerativeFillBox from "@/components/GenerativeFillBox";
+import GenerativeFillArea from "@/components/GenerateFillArea";
 
 export default function GenerativeFill(){
     // This page might turn into a client component
     // TODO:Upload Button
     // TODO:useState for the Image to be passed on GenerativeFillBox
     return (
-        <section className='w-full flex justify-center items-center flex-col'>
-             <h1 className='head_text text-center'>Generate Fill
-                <br className='max-md:hidden'/>
-                <span className='orange_gradient'> Images</span>
+        <section className='h-full w-full flex justify-start items-center flex-col'>
+             <h1 className='head_text text-center'>Generate <span className='orange_gradient'> Fill</span> Images
+                {/* <br className='max-md:hidden'/> */}
+                
             </h1>
-            <p className='mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl text-center'>
-                Prompt Oasis is an open-source AI prompting tool 
-                for modern world to discover, 
-                create and share creative prompts
+            <p className='mt-5 mb-24 text-lg text-gray-200 sm:text-xl max-w-2xl text-center'>
+                Upload, Resize, and Fill your Image
             </p>
-           <GenerativeFillBox publicId="cld-sample-5"/>
+     
+           {/* <GenerativeFillBox publicId="cld-sample-5"/> */}
+           <GenerativeFillArea/>
         </section>
     )
 }
