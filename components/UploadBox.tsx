@@ -4,7 +4,7 @@ import { CldUploadButton } from 'next-cloudinary'
 import PrimaryButton from './PrimaryButton'
 import { Button } from './ui/button'
  
- const UploadArea = ({onUpload} : {onUpload: (e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>)=> void}) => {
+ const UploadBox = ({onUpload} : {onUpload: (e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>)=> void}) => {
    return (
     <BoxArea>
     <div 
@@ -29,4 +29,4 @@ import { Button } from './ui/button'
    )
  }
  
- export default UploadArea
+ export default UploadBox

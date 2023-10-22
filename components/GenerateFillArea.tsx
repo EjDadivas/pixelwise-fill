@@ -5,11 +5,11 @@ import BoxArea from './BoxArea';
 import { useState, useRef, ChangeEvent, DragEvent } from "react";
 import { uploadImage } from '@/lib/actions';
 import GenerativeFillBox from './GenerativeFillBox';
-import UploadArea from './UploadArea';
+import UploadBox from './UploadBox';
 
 
 const GenerativeFillArea = () => {
-  const [image, setImage] = useState<string | null>(null);
+  const [image, setImage] = useState<string | null>("bootnhklcexvcw1yip8v");
   const [isUploading, setIsUploading] = useState(false)
 
 
@@ -45,7 +45,7 @@ const GenerativeFillArea = () => {
     {
       !image
       ? (
-        <UploadArea onUpload={handleUpload} />
+        <UploadBox onUpload={handleUpload} />
       )
       :
       (
