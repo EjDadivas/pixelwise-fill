@@ -9,7 +9,7 @@ import UploadBox from './UploadBox';
 
 
 const GenerativeFillArea = () => {
-  const [image, setImage] = useState<string | null>("bootnhklcexvcw1yip8v");
+  const [image, setImage] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false)
 
 
@@ -45,7 +45,7 @@ const GenerativeFillArea = () => {
     {
       !image
       ? (
-        <UploadBox onUpload={handleUpload} />
+        <UploadBox onUpload={handleUpload} load={isUploading}/>
       )
       :
       (

@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <>
       {/* TODO: Hero Section */}
-      <section className='mt-4'>
-        <div className='flex  w-full gap-24'>
+      <section className=''>
+        <div className='flex h-fullborder w-full gap-12'>
           <HeroContent/>
           <HeroImage/>
         </div>

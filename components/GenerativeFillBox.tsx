@@ -60,16 +60,17 @@ const GenerativeFillBox =({publicId} : {publicId: string}) => {
                     
                 {isLoading ? <BarLoader color="#FFA726"/>
                 : 
-                //  <CldImage 
-                //  src={publicId} 
-                //  height={height || 0} 
-                //  width={width || 0} alt="publicId" 
-                //  crop="pad"
-                //   fillBackground={{
-                //     prompt: prompt
-                //   }} 
-                //   />
-                 <></>
+                 <CldImage 
+                 src={publicId} 
+                 height={height || 0} 
+                 width={width || 0} 
+                 alt="publicId" 
+                 crop="pad"
+                  fillBackground={{
+                    prompt: prompt
+                  }} 
+                  />
+               
                   }
                 </BoxArea>
            
