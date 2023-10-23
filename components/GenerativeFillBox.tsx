@@ -68,13 +68,13 @@ const GenerativeFillBox =({publicId} : {publicId: string}) => {
                 {isLoading ? <BarLoader color="#FFA726"/>
                 : 
                 !height && !width ?  <BarLoader color="#FFA726"/> :
-                <CldImage ref={imageRef} src={publicId} height={200} width={200} alt="publicId" />
+                // <CldImage ref={imageRef} src={publicId} height={200} width={200} alt="publicId" />
 
-                // <CldImage ref={imageRef} src={publicId} height={height!} width={width!} alt="publicId"
-                // crop="pad" fillBackground={{
-                //     prompt: prompt
-                // }}
-                // />
+                <CldImage ref={imageRef} src={publicId} height={height!} width={width!} alt="publicId"
+                crop="pad" fillBackground={{
+                    prompt: prompt
+                }}
+                />
                   }
                 </BoxArea>
                 <Button  className="mt-4 text-sm bg-orange-400 w-full text-white" onClick={handleDownload}>Download</Button>
