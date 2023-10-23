@@ -23,10 +23,10 @@ export default function RootLayout({
           <div className='gradient'></div>
           </div>
           {/* TODO: Navbar Section */}
-        <main className='relative z-10 flex justify-center items-center flex-col sm:px-16 mx-60'>
+        <main className='relative z-10 flex justify-center items-center flex-col px-8 sm:px-16 xl:mx-24 2xl:mx-60'>
         <Navbar/>
         {children}
-        <Footer/>
+        {/* <Footer/> */}
         </main>
        
         </body>

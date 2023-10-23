@@ -1,9 +1,9 @@
 import React from 'react'
 import { Button } from './ui/button'
 
-const PrimaryButton = ({children}: {children: ReactNode}) => {
+const PrimaryButton = ({children, className, asChild}: {children: ReactNode,className?:string, asChild?:boolean}) => {
   return (
-    <Button className="mt-4 text-sm bg-orange-400 rounded-full text-white">
+    <Button  asChild={asChild} className={`mt-4 text-sm hover:text-orange-400 bg-orange-400  text-white ${className}`}>
       {children}
     </Button>
   )

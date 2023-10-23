@@ -1,5 +1,8 @@
+import HeadingText from '@/components/HeadingText'
 import HeroContent from '@/components/HeroContent'
 import HeroImage from '@/components/HeroImage'
+import StepCard from '@/components/StepCard'
+import { Steps } from '@/constants'
 import Image from 'next/image'
 
 export default function Home() {
@@ -7,36 +10,20 @@ export default function Home() {
     <>
       {/* TODO: Hero Section */}
       <section className=''>
-        <div className='flex h-fullborder w-full gap-12'>
+        <div className='flex flex-col-reverse md:flex-row gap-12'>
           <HeroContent/>
           <HeroImage/>
         </div>
       </section>
-      <section className='w-full h-72 mt-24 text-white '>
-        <h1 className='head_text text-center mb-12'>Easy Steps to follow</h1>
-        <div className='flex justify-between items-center px-4 py-6 gap-6'>
-          <div className="glassmorphism px-24 py-6 ">
-            <p className='text-2xl font-semibold'>Step 1</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, sapiente.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, sapiente.</p>
-
-          </div>
-          <div className="glassmorphism px-24 py-6 ">
-            <p className='text-2xl font-semibold'>Step 1</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, sapiente.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, sapiente.</p>
-
-          </div>
-          <div className="glassmorphism px-24 py-6 ">
-            <p className='text-2xl font-semibold'>Step 1</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, sapiente.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, sapiente.</p>
-
-          </div>
-
+      <section className='w-full md:h-72 mt-24 text-white '>
+        <HeadingText className=' text-center mb-4'>Easy Steps to follow</HeadingText>
+        <div className='grid lg:grid-cols-3 h-full justify-between  md:px-4 md:py-6 md:gap-6 '>
+          {Steps.map((step)=>(
+            <StepCard icon={step.icon} title={step.title} text={step.text}/>
+          ))}
         </div>
       </section>
-       {/* TODO: Steps Sections */}
+     
     
       
     </>

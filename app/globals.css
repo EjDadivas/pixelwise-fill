@@ -140,7 +140,7 @@
 }
 
 .head_text {
-  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-white sm:text-6xl;
+  @apply mt-5 text-7xl font-extrabold leading-[1.15] text-white sm:text-6xl;
 }
 
 
