@@ -1,4 +1,4 @@
-import GenerativeFillBox from "@/components/GenerativeFillBox";
+
 import GenerativeFillArea from "@/components/GenerateFillArea";
 import Paragraph from "@/components/Paragraph";
 import HeadingText from "@/components/HeadingText";
@@ -8,7 +8,7 @@ export default function GenerativeFill(){
     // TODO:Upload Button
     // TODO:useState for the Image to be passed on GenerativeFillBox
     return (
-        <section className='h-screen w-full flex justify-start items-center flex-col text-center'>
+        <section className='w-full flex justify-center items-center flex-col text-center '>
              <HeadingText className=' '>
              Generative Fill
              <br/>

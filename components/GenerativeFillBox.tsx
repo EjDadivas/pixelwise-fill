@@ -2,10 +2,10 @@
 import { useState, useRef, useEffect } from "react"
 import { Button } from "./ui/button"
 import { CldImage } from "next-cloudinary";
-import BouncingBalls from "./ui/BouncingBalls";
 import BoxArea from "./BoxArea";
 import { Input } from "./ui/input";
 import { BarLoader} from 'react-spinners'
+import { saveAs } from 'file-saver'
 
 // TODO: Pass the uploadeded Image inside
 const GenerativeFillBox =({publicId} : {publicId: string}) => {
@@ -24,22 +24,29 @@ const GenerativeFillBox =({publicId} : {publicId: string}) => {
     }, [])
     
     const handleResize = () =>{
-        setIsLoading(true)
-        setTimeout(()=>{
-            setHeight(containerRef.current?.offsetHeight || 0)
-            setWidth(containerRef.current?.offsetWidth || 0)
-            setPrompt(pendingPrompt);
-            setIsLoading(false)
-        }, 1000)
        
+        setIsLoading(true)
+            setTimeout(()=>{
+                setHeight(containerRef.current?.offsetHeight || 0)
+                setWidth(containerRef.current?.offsetWidth || 0)
+                setPrompt(pendingPrompt);
+            setIsLoading(false)
+
+            }, 500)
+
         
     }
+    const handleDownload= () => {
+        console.log(imageRef.current?.currentSrc)
+        saveAs(imageRef.current?.currentSrc, `${publicId}-generated-fill.jpg`)
+    }
   return (
-    <div className="w-full">
-        <div className="flex gap-12">
-            <div className="mx-auto min-w-[600px] h-[600px] w-[600px] text-center">
-                <BoxArea className="relative">
-                    <div ref={containerRef} className={`resize min-h-fit min-w-fit max-h-full max-w-full flex items-center justify-center overflow-hidden border border-dashed border-white  `}>
+    <div className="w-full shrink-0">
+        <div className="block xl:flex gap-12">
+            <div className="mx-auto text-center  md:mb-none mb-24 md:min-w-[600px] md:h-[600px] md:w-[600px] h-[400px]">
+                <BoxArea className=" relative h-full w-full">
+                    <div ref={containerRef} className={` resize min-h-fit min-w-fit max-h-full max-w-full 
+                    flex items-center justify-center overflow-hidden border border-dashed border-white  `}>
                         <CldImage ref={imageRef} src={publicId} height={200} width={200} alt="publicId"/>
                     </div>
                 </BoxArea>
@@ -55,27 +62,22 @@ const GenerativeFillBox =({publicId} : {publicId: string}) => {
                 </div>
             </div>
             {/* GENERATED FILL */}
-            <div className="mx-auto min-w-[600px]  h-[600px] w-[600px] text-center">
-                <BoxArea>
+            <div className="mx-auto text-center md:mb-none mb-24 md:min-w-[600px] md:h-[600px] md:w-[600px] h-[400px]">
+                <BoxArea className=" md:h-[600px] md:w-[600px]">
                     
                 {isLoading ? <BarLoader color="#FFA726"/>
                 : 
-                 <CldImage 
-                 src={publicId} 
-                 height={height || 0} 
-                 width={width || 0} 
-                 alt="publicId" 
-                 crop="pad"
-                  fillBackground={{
-                    prompt: prompt
-                  }} 
-                  />
-               
+                !height && !width ?  <BarLoader color="#FFA726"/> :
+                <CldImage ref={imageRef} src={publicId} height={200} width={200} alt="publicId" />
+
+                // <CldImage ref={imageRef} src={publicId} height={height!} width={width!} alt="publicId"
+                // crop="pad" fillBackground={{
+                //     prompt: prompt
+                // }}
+                // />
                   }
                 </BoxArea>
-           
-           
-                <Button  className="mt-4 text-sm bg-orange-400 w-full text-white" onClick={()=>console.log("download")}>Download</Button>
+                <Button  className="mt-4 text-sm bg-orange-400 w-full text-white" onClick={handleDownload}>Download</Button>
          
             </div>
         </div>

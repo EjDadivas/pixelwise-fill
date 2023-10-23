@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Button } from './ui/button'
 
 const PrimaryButton = ({children, className, asChild}: {children: ReactNode,className?:string, asChild?:boolean}) => {

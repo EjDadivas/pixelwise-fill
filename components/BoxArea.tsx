@@ -6,7 +6,7 @@ type BoxAreaProps = {
 }
 const BoxArea = ({children, className} : BoxAreaProps) => {
   return (
-    <div className={`flex h-full w-full items-center justify-center glassmorphism ${className}`}>
+    <div className={`flex items-center justify-center glassmorphism ${className}`}>
         {children}
     </div>
   )

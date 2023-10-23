@@ -3,7 +3,7 @@ import HeroContent from '@/components/HeroContent'
 import HeroImage from '@/components/HeroImage'
 import StepCard from '@/components/StepCard'
 import { Steps } from '@/constants'
-import Image from 'next/image'
+
 
 export default function Home() {
   return (
@@ -15,9 +15,9 @@ export default function Home() {
           <HeroImage/>
         </div>
       </section>
-      <section className='w-full md:h-72 mt-24 text-white '>
+      <section className='w-full  mt-24 text-white '>
         <HeadingText className=' text-center mb-4'>Easy Steps to follow</HeadingText>
-        <div className='grid lg:grid-cols-3 h-full justify-between  md:px-4 md:py-6 md:gap-6 '>
+        <div className='grid lg:grid-cols-3 h-full justify-between  md:gap-6 '>
           {Steps.map((step)=>(
             <StepCard icon={step.icon} title={step.title} text={step.text}/>
           ))}

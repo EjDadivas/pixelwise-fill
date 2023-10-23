@@ -1,13 +1,28 @@
+"use client"
 import React from 'react'
 import Paragraph from './Paragraph'
-import { Button } from './ui/button'
 import Link from 'next/link'
 import HeadingText from './HeadingText'
 import PrimaryButton from './PrimaryButton'
-
+import {motion} from "framer-motion"
 const HeroContent = () => {
   return (
-    <div className=" block lg:flex flex-1  flex-col justify-center text-center md:text-left">
+    <motion.div 
+    initial={{
+      opacity: 0,
+      x: -100
+    }}
+    animate={{
+      opacity:1,
+      x: 0
+    }}
+    transition={{
+      ease: "linear",
+      duration: 2,
+      x: { duration: 1 }
+    }}
+    
+    className=" block lg:flex flex-1  flex-col justify-center text-center md:text-left">
       <HeadingText className=''>Where Every Photo Tells a 
       <span className='orange_gradient'> Never-Ending Story</span></HeadingText>
 
@@ -22,7 +37,7 @@ const HeroContent = () => {
          Generate Fill  
         </Link>
       </PrimaryButton>
-    </div>
+    </motion.div>
   )
 }
 
