@@ -1,6 +1,8 @@
 # Pixel Wise
 
 Welcome to Pixel Wise, where every photo tells a never-ending story.
+![image](https://github.com/EjDadivas/pixelwise-fill/assets/99721216/0b70c82c-f50f-441a-8980-8919fbe091b5)
+![image](https://github.com/EjDadivas/pixelwise-fill/assets/99721216/bb647afb-bc35-48d1-ac5c-f955470d8d4f)
 
 Visit our website at [website.com](https://www.website.com)
 
@@ -31,7 +33,7 @@ To run Pixel Wise on your local machine, follow these installation instructions:
 2. Install the dependencies:
 
    ```bash
-
+   npm install
    ```
 
 3. Create an .env file in the root directory of the project and add the following environment variables. Replace the values with your own credentials:
