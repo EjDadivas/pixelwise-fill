@@ -41,6 +41,7 @@ const GenerativeFillBox =({publicId} : {publicId: string}) => {
     }
     const handleDownload= () => {
         console.log(imageRef.current?.currentSrc)
+        // @ts-ignore
         saveAs(imageRef.current?.currentSrc, `${publicId}-generated-fill.jpg`)
     }
   return (
