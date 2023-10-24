@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion';
+import { CldImage } from 'next-cloudinary';
 
 const HeroImage = () => {
   return (
@@ -21,8 +22,8 @@ const HeroImage = () => {
     }}
      
     className='flex-1 flex items-center w-full justify-center'>
-      <Image
-      src="/assets/images/hero1.png"
+      <CldImage
+      src="hero1-min-min_1_ymydxm"
       alt="hero1"
       width={700}
       height={700}
