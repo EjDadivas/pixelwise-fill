@@ -8,16 +8,16 @@ export default function GenerativeFill(){
     // TODO:Upload Button
     // TODO:useState for the Image to be passed on GenerativeFillBox
     return (
-        <section className='w-full flex justify-center items-center flex-col text-center '>
-             <HeadingText className=' '>
+        <section className='w-full xl:h-screen flex justify-start items-center flex-col text-center md:mb-24'>
+             <HeadingText className=' mb-12'>
              Generative Fill
              <br/>
             <span className='orange_gradient'> AI-Powered Outpainting </span> 
                 
             </HeadingText>
-            <Paragraph className='mt-5 mb-12 '>
+            {/* <Paragraph className='mt-5 mb-12 '>
              Upload, Resize, Add a Prompt, and Fill Your Image
-            </Paragraph>
+            </Paragraph> */}
      
            <GenerativeFillArea/>
         </section>

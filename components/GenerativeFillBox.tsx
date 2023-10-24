@@ -18,9 +18,12 @@ const GenerativeFillBox =({publicId} : {publicId: string}) => {
     const [pendingPrompt, setPendingPrompt] = useState("");
     useEffect(()=>{
         setIsLoading(true)
+        setTimeout(()=>{
         setHeight(containerRef.current?.offsetHeight || 0)
         setWidth(containerRef.current?.offsetWidth || 0)
         setIsLoading(false)
+
+    }, 500)
     }, [])
     
     const handleResize = () =>{
@@ -30,7 +33,7 @@ const GenerativeFillBox =({publicId} : {publicId: string}) => {
                 setHeight(containerRef.current?.offsetHeight || 0)
                 setWidth(containerRef.current?.offsetWidth || 0)
                 setPrompt(pendingPrompt);
-            setIsLoading(false)
+                setIsLoading(false)
 
             }, 500)
 
@@ -47,7 +50,8 @@ const GenerativeFillBox =({publicId} : {publicId: string}) => {
                 <BoxArea className=" relative h-full w-full">
                     <div ref={containerRef} className={` resize min-h-fit min-w-fit max-h-full max-w-full 
                     flex items-center justify-center overflow-hidden border border-dashed border-white  `}>
-                        <CldImage ref={imageRef} src={publicId} height={200} width={200} alt="publicId"/>
+                     
+                <CldImage ref={imageRef} src={publicId} height={200} width={200} alt="publicId" />
                     </div>
                 </BoxArea>
                 <div>
@@ -63,12 +67,11 @@ const GenerativeFillBox =({publicId} : {publicId: string}) => {
             </div>
             {/* GENERATED FILL */}
             <div className="mx-auto text-center md:mb-none mb-24 md:min-w-[600px] md:h-[600px] md:w-[600px] h-[400px]">
-                <BoxArea className=" md:h-[600px] md:w-[600px]">
+                <BoxArea className=" h-full w-full">
                     
                 {isLoading ? <BarLoader color="#FFA726"/>
                 : 
                 !height && !width ?  <BarLoader color="#FFA726"/> :
-                // <CldImage ref={imageRef} src={publicId} height={200} width={200} alt="publicId" />
 
                 <CldImage ref={imageRef} src={publicId} height={height!} width={width!} alt="publicId"
                 crop="pad" fillBackground={{

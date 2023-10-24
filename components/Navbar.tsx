@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
+import { GithubIcon, LucideGithub } from 'lucide-react'
 const Navbar = () => {
   return (
     <nav className='mb-16 pt-8 flex justify-between items-center w-full'>
@@ -15,8 +16,10 @@ const Navbar = () => {
             PixelWise
         </p>
         </Link>
-        <Link href="https://github.com/EjDadivas">
-            Github
+        <Link target='blank' href="https://github.com/EjDadivas/pixelwise-fill">
+           <div className='bg-orange-400 rounded-full p-1 border-2 border-black hover:bg-transparent hover:border-orange-400'>
+           <GithubIcon className="text-black text-xs hover:text-orange-400"/>
+           </div>
         </Link>
     </nav>
   )

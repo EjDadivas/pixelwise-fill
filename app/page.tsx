@@ -17,9 +17,9 @@ export default function Home() {
       </section>
       <section className='w-full  mt-24 text-white '>
         <HeadingText className=' text-center mb-4'>Easy Steps to follow</HeadingText>
-        <div className='grid lg:grid-cols-3 h-full justify-between  md:gap-6 '>
+        <div className='grid lg:grid-cols-3 h-full justify-between md:gap-6 md:mb-24 mb-8'>
           {Steps.map((step)=>(
-            <StepCard icon={step.icon} title={step.title} text={step.text}/>
+            <StepCard key={step.title} icon={step.icon} title={step.title} text={step.text}/>
           ))}
         </div>
       </section>
