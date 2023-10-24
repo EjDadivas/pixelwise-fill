@@ -17,21 +17,24 @@ const GenerativeFillArea = () => {
   const handleUpload = async (e : React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
     const file = (e.target as HTMLInputElement | HTMLDivElement)?.files?.[0]
-    if(!file){
-      console.log("upload file")
-    }
-    if(!file?.type.includes('image')) {
-      console.log("only image files")
-    }
+    console.log(file)
+    // if(!file){
+    //   console.log("upload file")
+    // }
+    // if(!file?.type.includes('image')) {
+    //   console.log("only image files")
+    // }
     setIsUploading(true)
     try {
+
         const reader =  new FileReader();
         reader.readAsDataURL(file);
         reader.onload = async () => {
-           const img = reader.result as string;
-           const result = await uploadImage(img)
-            setImage(result.public_id)
-            setIsUploading(false)
+          const img = reader.result as string;
+          console.log(img)
+          const result = await uploadImage(img)
+          setImage(result.public_id)
+          setIsUploading(false)
         }
 
     } catch (error) {
