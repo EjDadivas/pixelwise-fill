@@ -1,8 +1,10 @@
 # Pixel Wise
 
 Welcome to Pixel Wise, where every photo tells a never-ending story.
-![image](https://github.com/EjDadivas/pixelwise-fill/assets/99721216/0b70c82c-f50f-441a-8980-8919fbe091b5)
-![image](https://github.com/EjDadivas/pixelwise-fill/assets/99721216/bb647afb-bc35-48d1-ac5c-f955470d8d4f)
+
+
+https://github.com/EjDadivas/pixelwise-fill/assets/99721216/9e30a794-1e44-4d3c-bb68-4ebaa0440965
+
 
 Visit our website at [PixelWise](https://pixelwise-fill.vercel.app/)
 
